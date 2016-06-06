@@ -1,13 +1,32 @@
 #octopus {
-  margin: 0 auto;
-  padding-top: 10px;
-  position: relative;
+  position: absolute;
+  display: block;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 80px;
 }
 
-.div {
-  background-color: black;
+#hat {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
 }
 
-.p {
-  color: blue;
+#glasses {
+  position: absolute;
+  display: block;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 180px;
 }
