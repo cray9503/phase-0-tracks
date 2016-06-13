@@ -2,8 +2,7 @@ puts "What's the hamster's name?"
 hamster_name = gets.chomp
 
 puts "How loud is the hamster from 1 to 10?"
-hamster_volume = gets.chomp
-hamster_volume.to_i
+hamster_volume = gets.to_i
 
 puts "What is the color of the fur?"
 hamster_fur = gets.chomp
@@ -18,8 +17,7 @@ else hamster_adoption = nil
 end
 
 puts "What is the estimated age of the hamster?"
-hamster_age = gets.chomp
-hamster_age.to_i
+hamster_age = gets.to_i
 
 if hamster_age == ""
 	hamster_age = nil
