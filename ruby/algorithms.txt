@@ -1,0 +1,31 @@
+Elevator Algorithm
+
+For each button in an elevator:
+  -Until current button equals ideal floor:
+    -If current button equals ideal floor
+      -Press button
+    -Otherwise move to next button
+
+
+Daily Task Algorithm
+
+-If it is hot outside choose hot weather outfit:
+  -For each hot weather outfit check if dirty or clean
+    -If blue shirt is clean
+      -Wear blue shirt
+    -Otherwise
+      -Wear white shirt
+    -If gray shorts are clean
+      -Wear gray shorts
+    -Otherwise
+      -Wear brown shorts
+-Otherwise choose cold weather outfit:
+  -For each cold weather outfit check if dirty or clean
+    -If red sweater is clean
+      -Wear red sweater
+    -Otherwise
+      -Wear blue sweater
+    -If black pants are clean
+      -Wear black pants
+    -Otherwise
+      -Wear brown pants
