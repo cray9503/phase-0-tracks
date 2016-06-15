@@ -41,11 +41,11 @@ end
 
 if vam_name == true
   puts "Definitely a vampire"
-elsif (garlic && vamp_age) || health  == true
+elsif vamp_age && (garlic || health)  == true
   puts "Probably not a vampire"
-elsif !(garlic && vamp_age) || !health == true
+elsif !vamp_age && (!garlic || !health) == true
   puts "Probably a vampire"
-elsif !(garlic && vamp_age) && !health == true
+elsif  (!vamp_age && !garlic) && !health == true
   puts "Almost certainly a vampire"
 else
   puts "Results inconclusive"
