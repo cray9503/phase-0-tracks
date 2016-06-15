@@ -1,52 +1,98 @@
-puts "What is your name?"
-vam_name = gets.chomp
+puts "How many employees will be processed?"
+peopleProcessed = gets.to_i
 
-puts "What's your age?"
-age = gets.to_i
+currentEmployee = 0
 
-puts "What year were you born?"
-year = gets.to_i
+until peopleProcessed == currentEmployee do
 
-puts "Our company cafeteria serves garlic bread. Should we order some for you?"
-garlic = gets.chomp
+	puts "What is your name?"
+	vampireName = gets.chomp
 
-puts "Would you like to enroll in the company’s health insurance?"
-health = gets.chomp
+	puts "What's your age?"
+	age = gets.to_i
 
-if vam_name == "Drake Cula"
-  vam_name = true
-elsif vam_name == "Tu Fang"
-	vam_name = true
-else
-  vam_name = false
+	puts "What year were you born?"
+	year = gets.to_i
+
+	puts "Our company cafeteria serves garlic bread. Should we order some for you?"
+	likesGarlicBread = gets.chomp
+
+	puts "Would you like to enroll in the company’s health insurance?"
+	isInsured = gets.chomp
+
+
+	# Chaning all strings to boolean values ------
+
+	if isInsured == "yes"
+	  isInsured = true
+	elsif isInsured == "no"
+	  isInsured = false
+	end
+
+	if age == 2016 - year
+	  ageIsRight = true
+	else
+	  ageIsRight = false
+	end
+
+	if likesGarlicBread == "yes"
+	  likesGarlicBread = true
+	elsif likesGarlicBread == "no"
+	  likesGarlicBread = false
+	end
+
+	vampireName = ( vampireName == ("Drake Cula" || "Tu Fang")) ? true : false
+
+
+	# End boolean --------
+
+
+
+	# Creating variables for more readable code -----
+
+	ageIsWrong = !ageIsRight
+	hatesGarlicBread = !likesGarlicBread
+	isNotInsured = !isInsured
+
+	# End readable varibales -------
+
+
+
+	# Conditions to screen employees -----
+
+	puts "Please name any allergies you have, one at a time. (If you don't have any, just type 'done'."
+employeeAllergy = gets.chomp
+
+	if employeeAllergy == "sunshine"
+		puts "Probably a vampire"
+	end
+
+	until employeeAllergy == "sunshine" || employeeAllergy == "done" do
+		puts "What else?"
+		employeeAllergy = gets.chomp
+		if employeeAllergy == "sunshine"
+			puts "Probably a vampire"
+		end
+	end
+
+	if vampireName == true
+		puts "Definitely a vampire"
+	elsif ageIsRight && (likesGarlicBread || isInsured)
+		puts "Probably not a vampire"
+	elsif ageIsWrong && hatesGarlicBread && isNotInsured
+		puts "Almost certainly a vampire"
+	elsif ageIsWrong && (hatesGarlicBread || isNotInsured)
+		puts "Probably a vampire"
+	else
+		puts "Results inconclusive"
+	end
+
+
+
+	# End conditions -----
+
+	currentEmployee += 1
+
 end
 
-if health == "yes"
-  health = true
-elsif health == "no"
-  health = false
-end
-
-if age == 2016 - year
-  vamp_age = true
-else
-  vamp_age = false
-end
-
-if garlic == "yes"
-  garlic = true
-elsif garlic == "no"
-  garlic = false
-end
-
-if vam_name == true
-  puts "Definitely a vampire"
-elsif vamp_age && (garlic || health)  == true
-  puts "Probably not a vampire"
-elsif !vamp_age && (!garlic || !health) == true
-  puts "Probably a vampire"
-elsif  (!vamp_age && !garlic) && !health == true
-  puts "Almost certainly a vampire"
-else
-  puts "Results inconclusive"
-end
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
