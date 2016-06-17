@@ -21,15 +21,15 @@ end
 
   # Decrypts passwrord by moving each character back one letter
 def decrypt(stg)
-	index = 0
-	while index < stg.length
-		alpha = "abcdefghijklmnopqrstuvwxyz"
-		currentLetter = stg[index]
-		currentLetter = alpha.index(currentLetter) - 1
-		stg[index] = alpha[currentLetter]
-		index += 1
-	end
-	p stg
+  index = 0
+  while index < stg.length
+      alpha = "abcdefghijklmnopqrstuvwxyz"
+      currentLetter = stg[index]
+      currentLetter = alpha.index(currentLetter) - 1
+      stg[index] = alpha[currentLetter]
+      index += 1
+  end
+  p stg
 end
 
 # ---- End Decrypt Method
