@@ -8,16 +8,15 @@
 def encrypt(word)
 	index  = 0
   while index < word.length
-    p "#{word}"[index].next
+    password = word[index].next 
     index += 1
-    
-  	if "#{word}"[index] == " "
-    p " "
+    puts password.join("")
+  	if word[index] == " "
+    	p " "
   	else
  	 end
   end
 end
-
 
 # define variable to decrypt
 # use a while loop
@@ -30,10 +29,11 @@ end
 def decrypt(word)
 	index = 0
 	alph = "abcdefghijklmnopqrstuvwxyz"
-	while index < "#{word}".length
-	p alph[	(alph.index("#{word}"[index])) -1]
+	while index < word.length
+	decrypt_password = alph[(alph.index(word[index])) -1]
 	index +=1
-		if "#{word}"[index] == " "
+	puts decrypt_password.join("")
+		if word[index] == " "
     p " "
     	else
    		end
@@ -41,13 +41,44 @@ def decrypt(word)
 end
 
 
-encrypt("abc")
+#encrypt("abc")
 #should return "bcd"
-encrypt("zed")
+#encrypt("zed")
 #should return "afe"
-decrypt("bcd")
+#decrypt("bcd")
 #should return "abc
-decrypt("afe")
+#decrypt("afe")
 #should return "zed"
 
-decrypt(encrypt("swordfish")) 
+#decrypt(encrypt("swordfish")) did not work for us.
+
+
+#Ask user if they want to encrypt or decrypt a password
+#Get input from use
+#If they answer encrypt, ask for the password.
+#Run encrypt with password
+#If they answer decrypt, ask for the password.
+#Run decrypt with password 
+#Print results
+#Exit
+
+puts "Do you want to decrypt or encrypt a password"
+answer = gets.chomp
+input = false
+until input 
+	if answer == "decrypt"
+		puts "Gimme a password"
+		decrypt_password = gets.chomp
+		decrypt(decrypt_password)
+		input = true
+	elsif answer == "encrypt"
+		puts "Gimme a password"
+		encrypt_password = gets.chomp
+		encrypt(encrypt_password)
+		input = true
+	else
+		puts "Try again"
+	end
+end
+
+work on aa, string instead of letters, and decrypt(encrypt)
