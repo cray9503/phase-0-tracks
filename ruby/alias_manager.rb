@@ -41,7 +41,7 @@ end
   puts "Your offical spy name is #{offical_spy_name}!"
 
   spy_name_array = []
-  p spy_name_array.push(offical_spy_name)
+  spy_name_array.push(offical_spy_name)
 
 # End ----
 
@@ -74,7 +74,8 @@ end
 
 # Ending status ----
 
-puts "Here is your list of spy name!"
-puts spy_name_array
+spy_name_array.each do |name|
+  puts "#{name} is going to be an incredible spy!"
+end
 
 # End ----
