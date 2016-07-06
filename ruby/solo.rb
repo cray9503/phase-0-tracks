@@ -9,8 +9,8 @@
 #   -"deliver" thier coffee by printing a statment with their unique coffee
 # Create a method that burns the users mouth when they take their first sip
 # Create a method that refills the cup with a certain amount of ounces
-#   -ask the user how many ounces they would like to refil their cup
-# Create a method for when the user finishs their drink and is ready for their day
+#   -ask the user how many ounces they would like to refill their cup
+# Create a method for when the user finishes their drink and is ready for their day
 
 class Coffee
 
@@ -29,15 +29,49 @@ class Coffee
     @ounces = ounces
   end
 
+  def burns_mouth
+    puts "Woww!! That's hot, I just burned my tounge.."
+  end
+
+  def refil(ounces)
+    puts "Your coffee has been refilled with #{ounces}oz"
+  end
+
+  def finish_drink
+    puts "All finished and ready for my day!"
+  end
+
+  attr_reader :roast, :sugar, :milk, :ounces
+
 end
 
-puts "What type of coffee roast would you like?"
-roast = gets.chomp
-puts "Any sugar?"
-sugar = gets.chomp
-puts "Any milk?"
-milk = gets.chomp
-puts "How many ounces would you like?"
-ounces = gets.to_i
+coffee_list = []
+loop do
+  puts "Would you like a coffee?"
+  wants_coffee = gets.chomp
+    if wants_coffee == "no"
+      break
+    end
+  puts "What type of coffee roast would you like? "
+  roast = gets.chomp.capitalize!
+  puts "Any sugar?"
+  sugar = gets.chomp.capitalize!
+  puts "Any milk?"
+  milk = gets.chomp.capitalize!
+  puts "How many ounces would you like?"
+  ounces = gets.to_i
+  coffee = Coffee.new(roast, sugar, milk, ounces)
+  coffee_list << coffee
+end
 
-Coffee.new(roast, sugar, milk, ounces)
+puts "Here is a list of your coffee orders:"
+coffee_list.each_with_index do |coffee, index|
+  order_number = index + 1
+  puts "Coffee Order #{order_number}"
+  puts "-------------------"
+  puts "Roast: #{coffee.roast}"
+  puts "Sugar: #{coffee.sugar}"
+  puts "Milk: #{coffee.milk}"
+  puts "Ounces: #{coffee.ounces}"
+  puts "-------------------"
+end
