@@ -3,18 +3,19 @@
 // Compare each length and return the longest item
 
 function longest_phrase(array) {
-  var length_array = []
-  for (var i = 0; i < array.length; i++)
+  var length_array = [];
+  for (var i = 0; i < array.length; i++) {
     length_array.push(array[i].length);
-  if (length_array[0] < length_array[1] > length_array[2]) {
-    return length_array[1]
   }
-  else if (length_array[1] < length_array[0] > length_array[2]) {
-    return length_array[0]
+  var largest = 0;
+  for (i = 0; i <= largest;i++){
+    if (length_array[i] > largest) {
+        var largest = length_array[i];
+    }
   }
-  else {
-    return length_array[2]
-  }
+  console.log(array[length_array.indexOf(largest)]);
 }
 
-console.log(longest_phrase(["appple", "pear", "lemon"]))
+
+(longest_phrase(['apple', 'pear', 'grapes']));
+(longest_phrase(["long phrase","longest phrase","longer phrase"]));
