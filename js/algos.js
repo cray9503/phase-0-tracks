@@ -1,29 +1,22 @@
-// Iterate through each item of an array
-// Find out the length of each item in array
-// Compare each length and return the longest item
+// Longest phrase function ----------
 
-function longest_phrase(array) {
-  var length_array = [];
+function longestPhrase(array) {
+  var lengthArray = [];
   for (var i = 0; i < array.length; i++) {
-    length_array.push(array[i].length);
+    lengthArray.push(array[i].length);
   }
   var largest = 0;
   for (i = 0; i <= largest;i++){
-    if (length_array[i] > largest) {
-        var largest = length_array[i];
+    if (lengthArray[i] > largest) {
+        var largest = lengthArray[i];
     }
   }
-  console.log(array[length_array.indexOf(largest)]);
+  console.log(array[lengthArray.indexOf(largest)]);
 }
 
+// Mathcking key-value function ----------
 
-// (longest_phrase(['apple', 'pear', 'grapes']));
-// (longest_phrase(["long phrase","longest phrase","longer phrase"]));
-
-
-// Takes two objects and checks to see if the objects share at least one key-value pair.
-
-function key_match(object_1, object_2) {
+function keyMatch(object_1, object_2) {
 
   var object1Keys = Object.keys(object_1);
   var object2Keys = Object.keys(object_2);
@@ -50,4 +43,32 @@ function key_match(object_1, object_2) {
   return hasMatch;
 }
 
-console.log(key_match({name: "Steve", age: 54}, {name: "Tamir", age: 54}));
+function arrayGenerator(numberOfItems) {
+  var itemArray = [];
+  var possible = "abcdefghijklmnopqrstuvwxyz";
+
+  for (var i = 0; i < numberOfItems; i++) {
+    var itemLength = Math.floor((Math.random() * 10) + 1);
+    var randomString = '';
+    var possible = "abcdefghijklmnopqrstuvwxyz";
+      for ( var x = 0; x < itemLength; x++ ) {
+       randomString += possible.charAt(Math.floor(Math.random() * possible.length));
+      }
+    itemArray.push(randomString);
+  }
+  return itemArray;
+}
+
+// Driver code -----------
+
+for (var i = 0; i < 10; i++) {
+  randomArray = arrayGenerator(3);
+  longestPhrase(randomArray);
+}
+
+
+// (longestPhrase(['apple', 'pear', 'grapes']));
+// (longestPhrase(["long phrase","longest phrase","longer phrase"]));
+
+
+// console.log(keyMatch({name: "Steve", age: 54}, {name: "Tamir", age: 54}));
