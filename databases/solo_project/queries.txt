@@ -1,0 +1,51 @@
+* Display the information in one table
+  command: SELECT * FROM customer;
+  output: 1|Jerry|1
+          2|Sara|2
+          3|George|3
+          4|Arnold|2
+
+* Update an item that meets some condition
+  command: UPDATE customer SET coffee_id=3 WHERE name="Sara";
+  output: 1|Jerry|1
+          2|Sara|3
+          3|George|3
+          4|Arnold|2
+
+* Display the information in both tables using one query
+  command: SELECT * FROM customer JOIN coffee ON customer.coffee_id=coffee.name;
+  output: 1|Jerry|1|1|dark
+          2|Sara|3|3|light
+          3|George|3|3|light
+          4|Arnold|2|2|medium
+
+* Display a narrower selection of columns from both tables using one query
+  command: SELECT customer.name, coffee.name FROM customer JOIN coffee ON customer.coffee_id=coffee.id;
+  output: Jerry|dark
+          Sara|light
+          George|light
+          Arnold|medium
+
+* Delete an item that meets some condition
+  command: DELETE FROM customer WHERE name="Jerry";
+  output: 2|Sara|3
+          3|George|3
+          4|Arnold|2
+
+* Left Join
+  command: SELECT customer.name, coffee.id
+   ...> FROM customer
+   ...> LEFT JOIN coffee
+   ...> ON customer.coffee_id=coffee.id;
+   output: Sara|3
+           George|3
+           Arnold|2
+
+* Inner Join
+  command: SELECT customer.name, coffee.id
+   ...> FROM customer
+   ...> INNER JOIN coffee
+   ...> ON customer.coffee_id=coffee.id;
+   output: Sara|3
+           George|3
+           Arnold|2
